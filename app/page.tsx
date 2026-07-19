@@ -14,7 +14,6 @@ export default function Page() {
           (Press <kbd>d</kbd> to toggle dark mode)
         </div>
       </div>
-      <span>ABCD</span>
     </div>
   )
 }
