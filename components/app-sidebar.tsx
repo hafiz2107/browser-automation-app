@@ -1,34 +1,13 @@
-"use client"
-
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
-import { Plus, Workflow } from "lucide-react"
 
+import { WorkflowNav } from "@/features/workflows/components/workflow-nav"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupAction,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-
-const DUMMY_WORKFLOWS = [
-  { id: "1", name: "dominant-wasp" },
-  { id: "2", name: "honest-reindeer" },
-  { id: "3", name: "expected-llama" },
-  { id: "4", name: "essential-ocelot" },
-  { id: "5", name: "creepy-echidna" },
-  { id: "6", name: "eastern-silkworm" },
-  { id: "7", name: "cultural-lion" },
-  { id: "8", name: "proud-weasel" },
-  { id: "9", name: "regional-bonobo" },
-]
 
 export function AppSidebar() {
   return (
@@ -50,26 +29,8 @@ export function AppSidebar() {
         <SidebarTrigger className="-ml-1" />
       </SidebarHeader>
 
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Workflows</SidebarGroupLabel>
-          <SidebarGroupAction title="New workflow">
-            <Plus />
-            <span className="sr-only">New workflow</span>
-          </SidebarGroupAction>
-          <SidebarGroupContent>
-            <SidebarMenu className="gap-y-0.5">
-              {DUMMY_WORKFLOWS.map((workflow) => (
-                <SidebarMenuItem key={workflow.id}>
-                  <SidebarMenuButton tooltip={workflow.name}>
-                    <Workflow className="shrink-0" />
-                    <span>{workflow.name}</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+      <SidebarContent className="group-data-[collapsible=icon]:items-center">
+        <WorkflowNav />
       </SidebarContent>
 
       <SidebarFooter className="group-data-[collapsible=icon]:items-center">
@@ -85,7 +46,6 @@ export function AppSidebar() {
             },
           }}
         />
-
       </SidebarFooter>
     </Sidebar>
   )
